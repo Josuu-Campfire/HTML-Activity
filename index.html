@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Hyvenn</title>
-    <link rel="icon" type="image/x-icon" href="/Assets/cube.png">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/cube.png">
 
     <!--Embed Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -360,7 +360,7 @@ img {
 
       <!--Header-->
       <div class="header">
-        <img src="/Assets/hurricane.png" alt="meh">
+        <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/hurricane.png" alt="meh">
 
         <h1>
             Hyvenn
@@ -376,27 +376,27 @@ img {
         <ul class="hind-guntur-light">
 
           <li>
-              <img src="/Assets/Thumbnails/CidThumb.png" alt="Cid" data-video="/Assets/Videos/Cid.mp4">
+              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/CidThumb.png"     alt="Cid">
               <p class="hind-guntur-light">Ursal's Vlog</p>
           </li>
 
           <li>
-              <img src="/Assets/Thumbnails/JairusThumb.png" alt="Jairus" data-video="/Assets/Videos/Jairus.mp4">
+              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/JairusThumb.png"  alt="Jairus">
               <p class="hind-guntur-light">Jairus's Vlog</p>
           </li>
 
           <li>
-              <img src="/Assets/Thumbnails/RenzThumb.png" alt="Renz" data-video="/Assets/Videos/Renz.mp4">
+              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/RenzThumb.png"    alt="Renz">
               <p class="hind-guntur-light">Godinez's Vlog</p>
           </li>
 
           <li>
-              <img src="/Assets/Thumbnails/StephenThumb.png" alt="Stephen" data-video="/Assets/Videos/Stephen.mp4">
+              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/StephenThumb.png" alt="Stephen">
               <p class="hind-guntur-light">Valencia's Vlog</p>
           </li>
 
           <li>
-              <img src="/Assets/Thumbnails/MykeThumb.png" alt="Myke" data-video="/Assets/Videos/Myke.mp4">
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/MykeThumb.png"     alt="Myke">
               <p class="hind-guntur-light">Encinas's Vlog</p>
           </li>
 
@@ -410,7 +410,7 @@ img {
         <div class="video-audio-stack">
 
             <div class="video-container-custom">
-                <video id="mainVideo" controls>
+                <video id="mainVideo" controls type="video/mp4">
                   Unable to load, possibly unsupported by the browser.
                 </video>
             </div>
@@ -464,7 +464,7 @@ img {
       getComputedStyle(document.documentElement).getPropertyValue(pair.dark));
   }
 
-  // Set main accent palette for the page
+  // Set main accent palette for the page from the selected random indices
   document.documentElement.style.setProperty('--accent',
     getComputedStyle(document.documentElement).getPropertyValue(`--accent1`));
   document.documentElement.style.setProperty('--accent-mid',
@@ -472,33 +472,49 @@ img {
   document.documentElement.style.setProperty('--accent-dark',
     getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
 
-  
   // Sidebar Thumbnail Click Handler
   // Add click event listeners to sidebar video thumbnails
   document.querySelectorAll('.sidebar ul img').forEach(img => {
     img.addEventListener('click', function() {
-      // Get video source from clicked thumbnail
-      const videoSrc = this.getAttribute('data-video');
+      // Get video key from clicked thumbnail
+      const videoKey = this.getAttribute('alt');
 
-      // Map video sources to corresponding favorite song audio files
-      const audioMap = {
-        "/Assets/Videos/Cid.mp4": "/Assets/Fav Songs/Ursal/獣ゆく細道.mp3",
-        "/Assets/Videos/Jairus.mp4": "/Assets/Fav Songs/Garcia/sombr - back to friends (official audio).mp3",
-        "/Assets/Videos/Renz.mp4": "/Assets/Fav Songs/Godinez/Airplane Mode.mp3",
-        "/Assets/Videos/Stephen.mp4": "/Assets/Fav Songs/Valencia/better for you.mp3",
-        "/Assets/Videos/Myke.mp4": "/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3"
+      // Map video keys to Dropbox direct links
+      // Replace FILE_ID with your actual Dropbox file IDs
+      const dropboxMap = {
+        "Cid"     : "https://ucbb18c85a576dd64dede0baf9e3.dl.dropboxusercontent.com/cd/0/inline/CxQxRyQr8lWuniZB1RTv50kUnhIkDPhgVr3A9BbHO2gwvVu7ICr2OpqRnOEhln7FKkH-EjsUcSoUwqP6QFez0IROzE3uRsO41Yt3CoG7k_2wE-SZJqqblWzslAZTsV_pDYxYG_8bagPzgKe9e0exoyel/file#",
+
+        "Jairus"  : "https://uca8f559048f129bdf38a8a4d456.dl.dropboxusercontent.com/cd/0/inline/CxSu7WQw3YWhdW8FttHeEWDgGGkQPzz4S4RxJIeM7TO9yZlnPosWKRxIAkQBIMmifMfyMH2crsYT4lfgDhjlMtVCpzOTiB8pzCZIcL9PjB4Ec6oF9tA3BrA_ED5qcCCZebHosIsIyZ9XumgcWDhaXAuX/file#",
+
+        "Renz"    : "https://uc050ef1d3a49dedc6006affedae.dl.dropboxusercontent.com/cd/0/inline/CxS9-iJVqXVkwIrfSuRfQ3TqJ6KWmqe8SVh6WYcCGEWXK2-oTfYgZx2jcvQVAALGFN1ypCgb4R0j0hus1Uvqxk7ZnvDcOPPvkU595ihNFW-IilU11Gkhom7pc6wdhCfRJQEO6jJhQtfvexXEU6jcjwtx/file#",
+
+        "Stephen" : "https://uc68d3d1d223f3694838c8e8612d.dl.dropboxusercontent.com/cd/0/inline/CxSDc4mkJ2A0XfQevfl6XS8ISkFpkXVo6G-8zty85OyF_vpjRzksTJe8pugpqLWHNAqmzmVScjdOuC_75H9VT7sV7i14g8y0KzOwGRNx8AxwoQhkgRwOCd7IDVJFvsvGbT09jatNEvkLS3uVshL8RgWe/file#",
+        
+        "Myke"    : "https://uc0b04dd97a3339d50ed90f330b1.dl.dropboxusercontent.com/cd/0/inline/CxSMdAvZB-4WnVQSPEWkK4hGFxjqc5aXnpNrjrro3NWF4oyf-ciZS8EVlUgS_HgMRBCbJzxHZFwFzdhB8v4OCiJDtenQaW2FftwQWSy4Y034vyjh2P66JJ2Mvv8_-DzxsUd8U2RmdbezlNEpsfCm7llV/file#"
       };
 
+      // Map video keys to corresponding favorite song audio files
+      const audioMap = {
+        "Cid"     : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Ursal/獣ゆく細道.mp3",
+        "Jairus"  : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Garcia/sombr - back to friends (official audio).mp3",
+        "Renz"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Godinez/Airplane Mode.mp3",
+        "Stephen" : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Valencia/better for you.mp3",
+        "Myke"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3"
+      };
+
+      // Get Dropbox video link
+      const dbVideoSrc = dropboxMap[videoKey] || "";
+
       // Get audio source based on selected video
-      const audioSrc = audioMap[videoSrc] || "";
+      const audioSrc = audioMap[videoKey] || "";
       
       // Get video and audio elements
       const video = document.getElementById('mainVideo');
       const audio = document.getElementById('mainAudio');
 
-      // Load selected video
-      if (videoSrc && video) {
-        video.src = videoSrc;
+      // Load selected video from Dropbox
+      if (dbVideoSrc && video) {
+        video.src = dbVideoSrc;
         video.load();
       }
 
