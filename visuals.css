@@ -76,6 +76,7 @@ html, body {
   - Stacks header, main, sidebar, and footer vertically.
   - Sidebar becomes a horizontal scroll box below video.
   - Video and audio containers expand to full width.
+  - Prevents scrolling of the main content area and keeps the footer always visible at the bottom.
 */
 @media (max-width: 900px), (orientation: portrait) {
   .layout {
@@ -86,13 +87,7 @@ html, body {
       "footer" auto
       / 1fr;
     min-height: 100vh;
-    height: auto;
-  }
-  .header {
-    grid-area: header;
-    width: 100%;
-    padding-left: 12px;
-    font-size: 18px;
+    height: 100vh; /* Ensure layout fills the viewport */
   }
   .main {
     grid-area: main;
@@ -103,6 +98,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: auto;
+    overflow: hidden;
+  }
+  .body, html, body {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
   }
   .sidebar {
     grid-area: sidebar;
@@ -116,55 +118,14 @@ html, body {
     box-sizing: border-box;
     border-radius: 0 0 12px 12px;
   }
-  .sidebar ul {
-    flex-direction: row;
-    gap: 0.5em;
-    align-items: flex-start;
-    justify-content: flex-start;
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-height: 180px;
-    width: 100%;
-    scrollbar-width: thin;
-  }
-  .sidebar ul li {
-    max-width: 120px;
-    width: 100px;
-    margin: 0 4px;
-    gap: 0.2em;
-  }
-  .sidebar ul li img {
-    max-width: 100px;
-    border-width: 3px;
-  }
-  .sidebar h2 {
-    margin-bottom: 0.2em;
-    font-size: 1em;
-    text-align: left;
-  }
-  .video-audio-stack {
-    max-width: 100vw;
-    width: 100%;
-    height: auto;
-    gap: 0;
-  }
-  .video-container-custom,
-  .audio-container-custom {
-    max-width: 100vw;
-    width: 100%;
-    border-radius: 0;
-  }
-  #mainVideo {
-    max-width: 100vw;
-    max-height: 40vh;
-  }
-  .audio-container-custom audio {
-    max-width: 90vw;
-  }
   .footer {
     width: 100%;
     margin-top: 0.5em;
     padding: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
   }
   .layoutfooter {
     gap: 8px;
@@ -172,6 +133,9 @@ html, body {
   }
   img {
     width: 100px;
+  }
+  .layout {
+    position: relative;
   }
 }
 
