@@ -19,7 +19,11 @@
 </head>
 
 <style>
-/*Root Variables: Color Palette*/
+/*
+  Root Variables: Color Palette
+  - Defines accent and gray colors used throughout the site.
+  - Accent colors are shuffled for dynamic theme.
+*/
 :root {
   --accent1: #8a4b1c;
   --accent1-mid: #1c6b8a;
@@ -49,14 +53,17 @@
   --gray2: #1b1f21;
 }
 
-/*Base HTML & Body Styles*/
+/*
+Base HTML & Body Styles
+  - Sets up full height, removes default margin/padding.
+  - Applies main font and background color.
+*/
 html, body {
     height: 100%;
     min-height: 100%;
     margin: 0;
     padding: 0;
 }
-/* Main body container */
 .body{
     margin: 0;   
     background-color: var(--accent-dark); 
@@ -67,7 +74,11 @@ html, body {
     flex-direction: column;
 }
 
-/*Layout Grid*/
+/*
+  Layout Grid
+  - Uses CSS Grid for main page structure.
+  - Sidebar on left, main content on right, header and footer full width.
+*/
 .layout {
   flex: 1 0 auto;
   display: grid;
@@ -81,7 +92,115 @@ html, body {
   height: 100vh;
 }
 
-/*Header Styles*/
+/*
+  Adaptive Layout for Phone Screens
+  - Stacks header, main, sidebar, and footer vertically.
+  - Sidebar becomes a horizontal scroll box below video.
+  - Video and audio containers expand to full width.
+*/
+@media (max-width: 900px), (orientation: portrait) {
+  .layout {
+    grid:
+      "header" auto
+      "main" auto
+      "sidebar" 1fr
+      "footer" auto
+      / 1fr;
+    min-height: 100vh;
+    height: auto;
+  }
+  .header {
+    grid-area: header;
+    width: 100%;
+    padding-left: 12px;
+    font-size: 18px;
+  }
+  .main {
+    grid-area: main;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar {
+    grid-area: sidebar;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    max-height: 260px;
+    overflow-y: auto;
+    background-color: var(--gray2);
+    padding: 0.5em 0.5em 1em 0.5em;
+    box-sizing: border-box;
+    border-radius: 0 0 12px 12px;
+  }
+  .sidebar ul {
+    flex-direction: row;
+    gap: 0.5em;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: 180px;
+    width: 100%;
+    scrollbar-width: thin;
+  }
+  .sidebar ul li {
+    max-width: 120px;
+    width: 100px;
+    margin: 0 4px;
+    gap: 0.2em;
+  }
+  .sidebar ul li img {
+    max-width: 100px;
+    border-width: 3px;
+  }
+  .sidebar h2 {
+    margin-bottom: 0.2em;
+    font-size: 1em;
+    text-align: left;
+  }
+  .video-audio-stack {
+    max-width: 100vw;
+    width: 100%;
+    height: auto;
+    gap: 0;
+  }
+  .video-container-custom,
+  .audio-container-custom {
+    max-width: 100vw;
+    width: 100%;
+    border-radius: 0;
+  }
+  #mainVideo {
+    max-width: 100vw;
+    max-height: 40vh;
+  }
+  .audio-container-custom audio {
+    max-width: 90vw;
+  }
+  .footer {
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 4px;
+  }
+  .layoutfooter {
+    gap: 8px;
+    font-size: 10px;
+  }
+  img {
+    width: 100px;
+  }
+}
+
+/*
+  Header Styles
+  - Styles for the top header bar.
+  - Contains logo and site title.
+*/
 .header { 
     grid-area: header; 
     background-color: var(--accent);
@@ -107,7 +226,10 @@ html, body {
     font-family: "Share", bold;
 }
 
-/*Audio Header (Hidden)*/
+/*
+  Audio Header (Hidden)
+  - Used for header audio, currently hidden.
+*/
 .audio-container-header audio {
     width: 220px;
     max-width: 100%;
@@ -117,7 +239,11 @@ html, body {
     box-shadow: 0 4px 24px rgba(0,0,0,0.25);
 }
 
-/*Sidebar Styles*/
+/*
+  Sidebar Styles
+  - Styles for sidebar containing video thumbnails.
+  - Scrollable list of video selections.
+*/
 .sidebar {
     grid-area: sidebar;
     background-color: var(--gray2);
@@ -192,7 +318,10 @@ html, body {
     text-align: center;
 }
 
-/*Main Content Area*/
+/*
+  Main Content Area
+  - Contains the video and audio player stack.
+*/
 .main { 
     grid-area: main; 
     padding: 0;
@@ -204,7 +333,11 @@ html, body {
     height: 100%;
 }
 
-/*Video & Audio Stack*/
+/*
+  Video & Audio Stack
+  - Holds the video and audio containers.
+  - Centers content and sets max width.
+*/
 .video-audio-stack {
     width: 100%;
     max-width: 900px;
@@ -272,7 +405,11 @@ html, body {
     box-shadow: 0 2px 12px rgba(0,0,0,0.10);
 }
 
-/*Footer Styles*/
+/*
+  Footer Styles
+  - Styles for the bottom footer bar.
+  - Contains page info and member names.
+*/
 .footer { 
     margin-top: 1%;
     grid-area: footer; 
@@ -290,7 +427,10 @@ html, body {
 }
 .grow1 { flex-grow: 1; }
 
-/*Fonts\ Classes*/
+/*
+  Font Classes
+  - Utility classes for custom fonts.
+*/
 .hind-guntur-light {
   font-family: "Hind Guntur", sans-serif;
   font-weight: 300;
@@ -312,12 +452,18 @@ html, body {
   font-style: normal;
 }
 
-/*Global Image Styles*/
+/*
+  Global Image Styles
+  - Sets default image width for large screens.
+*/
 img {
     width: 500px;
 }
 
-/*Custom Media Controls Styling*/
+/*
+  Custom Media Controls Styling
+  - Customizes browser media controls for video/audio.
+*/
 /* Webkit browsers: video/audio controls */
 .video-container-custom video::-webkit-media-controls-volume-slider,
 .audio-container-custom audio::-webkit-media-controls-volume-slider {
@@ -441,8 +587,12 @@ img {
 
 
     <script>
+  // ---------------
   // Accent Color Palette Randomizer
-  // Accent color register: defines available accent palettes
+  // ---------------
+  // This section randomizes the accent color palette for the site on each load.
+  // It shuffles the accent color pairs and sets them as CSS variables.
+  // This affects the overall color theme for backgrounds, buttons, and highlights.
   const accentPairs = [
     { normal: '--accent1', mid: '--accent1-mid', dark: '--accent1-dark' },
     { normal: '--accent2', mid: '--accent2-mid', dark: '--accent2-dark' },
@@ -450,10 +600,10 @@ img {
     { normal: '--accent4', mid: '--accent4-mid', dark: '--accent4-dark' },
     { normal: '--accent5', mid: '--accent5-mid', dark: '--accent5-dark' }
   ];
-  // Shuffle indices to randomize accent selection
+  // Shuffle indices to randomize accent selection for each session
   const indices = [0, 1, 2, 3, 4].sort(() => Math.random() - 0.5);
 
-  // Assign shuffled accent colors to CSS variables
+  // Assign shuffled accent colors to CSS variables for dynamic theming
   for (let i = 0; i < 5; i++) {
     const pair = accentPairs[indices[i]];
     document.documentElement.style.setProperty(`--accent${i+1}`,
@@ -465,6 +615,7 @@ img {
   }
 
   // Set main accent palette for the page from the selected random indices
+  // These are used for the header, footer, and main content backgrounds.
   document.documentElement.style.setProperty('--accent',
     getComputedStyle(document.documentElement).getPropertyValue(`--accent1`));
   document.documentElement.style.setProperty('--accent-mid',
@@ -472,28 +623,34 @@ img {
   document.documentElement.style.setProperty('--accent-dark',
     getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
 
+  // ---------------
   // Sidebar Thumbnail Click Handler
-  // Add click event listeners to sidebar video thumbnails
+  // ---------------
+  // This section adds click event listeners to each sidebar video thumbnail.
+  // When a thumbnail is clicked:
+  //   - The corresponding video and audio sources are loaded into the main player.
+  //   - Video sources are loaded from Dropbox direct links.
+  //   - Audio sources are loaded from GitHub raw links.
+  //   - The video and audio elements are updated and reloaded.
   document.querySelectorAll('.sidebar ul img').forEach(img => {
     img.addEventListener('click', function() {
-      // Get video key from clicked thumbnail
+      // Get video key from clicked thumbnail (uses alt attribute)
       const videoKey = this.getAttribute('alt');
 
       // Map video keys to Dropbox direct links
-      // Replace FILE_ID with your actual Dropbox file IDs
+      // These links must be direct and public; replace with your actual Dropbox file links.
+      // This affects which video is played in the main video player.
       const dropboxMap = {
         "Cid"     : "https://ucbb18c85a576dd64dede0baf9e3.dl.dropboxusercontent.com/cd/0/inline/CxQxRyQr8lWuniZB1RTv50kUnhIkDPhgVr3A9BbHO2gwvVu7ICr2OpqRnOEhln7FKkH-EjsUcSoUwqP6QFez0IROzE3uRsO41Yt3CoG7k_2wE-SZJqqblWzslAZTsV_pDYxYG_8bagPzgKe9e0exoyel/file#",
-
         "Jairus"  : "https://uca8f559048f129bdf38a8a4d456.dl.dropboxusercontent.com/cd/0/inline/CxSu7WQw3YWhdW8FttHeEWDgGGkQPzz4S4RxJIeM7TO9yZlnPosWKRxIAkQBIMmifMfyMH2crsYT4lfgDhjlMtVCpzOTiB8pzCZIcL9PjB4Ec6oF9tA3BrA_ED5qcCCZebHosIsIyZ9XumgcWDhaXAuX/file#",
-
         "Renz"    : "https://uc050ef1d3a49dedc6006affedae.dl.dropboxusercontent.com/cd/0/inline/CxS9-iJVqXVkwIrfSuRfQ3TqJ6KWmqe8SVh6WYcCGEWXK2-oTfYgZx2jcvQVAALGFN1ypCgb4R0j0hus1Uvqxk7ZnvDcOPPvkU595ihNFW-IilU11Gkhom7pc6wdhCfRJQEO6jJhQtfvexXEU6jcjwtx/file#",
-
         "Stephen" : "https://uc68d3d1d223f3694838c8e8612d.dl.dropboxusercontent.com/cd/0/inline/CxSDc4mkJ2A0XfQevfl6XS8ISkFpkXVo6G-8zty85OyF_vpjRzksTJe8pugpqLWHNAqmzmVScjdOuC_75H9VT7sV7i14g8y0KzOwGRNx8AxwoQhkgRwOCd7IDVJFvsvGbT09jatNEvkLS3uVshL8RgWe/file#",
-        
         "Myke"    : "https://uc0b04dd97a3339d50ed90f330b1.dl.dropboxusercontent.com/cd/0/inline/CxSMdAvZB-4WnVQSPEWkK4hGFxjqc5aXnpNrjrro3NWF4oyf-ciZS8EVlUgS_HgMRBCbJzxHZFwFzdhB8v4OCiJDtenQaW2FftwQWSy4Y034vyjh2P66JJ2Mvv8_-DzxsUd8U2RmdbezlNEpsfCm7llV/file#"
       };
 
       // Map video keys to corresponding favorite song audio files
+      // These are loaded from GitHub raw links and played in the audio player.
+      // This affects which song is played for each video selection.
       const audioMap = {
         "Cid"     : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Ursal/獣ゆく細道.mp3",
         "Jairus"  : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Garcia/sombr - back to friends (official audio).mp3",
@@ -502,23 +659,25 @@ img {
         "Myke"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3"
       };
 
-      // Get Dropbox video link
+      // Get Dropbox video link for selected thumbnail
       const dbVideoSrc = dropboxMap[videoKey] || "";
 
-      // Get audio source based on selected video
+      // Get audio source for selected thumbnail
       const audioSrc = audioMap[videoKey] || "";
       
-      // Get video and audio elements
+      // Get video and audio elements from the DOM
       const video = document.getElementById('mainVideo');
       const audio = document.getElementById('mainAudio');
 
-      // Load selected video from Dropbox
+      // Load selected video from Dropbox into main video player
+      // This updates the video shown to the user.
       if (dbVideoSrc && video) {
         video.src = dbVideoSrc;
         video.load();
       }
 
-      // Load selected audio, or clear if not available
+      // Load selected audio into main audio player
+      // If no audio is available, clear and pause the audio player.
       if (audio && audioSrc) {
         audio.src = audioSrc;
         audio.load();
