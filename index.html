@@ -1,219 +1,39 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--Import CSS-->
-    <link rel="stylesheet" href="visuals.css">
-    
-    <title>Hyvenn</title>
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/cube.png">
-
-    
-    <!--Embed Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Hind+Guntur:wght@300;400;500;600;700&family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jairus' Vlog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #222220;
+    }
+    h1 { 
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: #cfcfbf;
+      font-weight: bold;
+    }
+    video, audio { max-width: 15%; margin-bottom: 20px; }
+  </style>
 </head>
+<body>
+  <h1>Jairus' Vlog</h1>
 
-<body class="body">
+  <video controls>
+    <source src="jaivlog.mp4" type="video/mp4">
+  </video>
 
-
-    <section class="layout">
-
-      <!--Header-->
-      <div class="header">
-        <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/hurricane.png" alt="meh">
-
-        <h1>
-            Hyvenn
-        </h1>
-      </div>
-
-      <!--Sidebar-->
-      <div class="sidebar">
-        <h2 class="caudex-regular">
-            Videos:
-        </h2>
-
-        <ul class="hind-guntur-light">
-
-          <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/CidThumb.png"     alt="Cid">
-              <p class="hind-guntur-light">Ursal's Vlog</p>
-          </li>
-
-          <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/JairusThumb.png"  alt="Jairus">
-              <p class="hind-guntur-light">Jairus's Vlog</p>
-          </li>
-
-          <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/RenzThumb.png"    alt="Renz">
-              <p class="hind-guntur-light">Godinez's Vlog</p>
-          </li>
-
-          <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/StephenThumb.png" alt="Stephen">
-              <p class="hind-guntur-light">Valencia's Vlog</p>
-          </li>
-
-          <li>
-              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/MykeThumb.png"     alt="Myke">
-              <p class="hind-guntur-light">Encinas's Vlog</p>
-          </li>
-
-        </ul>
-      </div>
-
-
-      <!--The body-->
-      <div class="main">
-
-        <div class="video-audio-stack">
-
-            <div class="video-container-custom">
-                <video id="mainVideo" controls type="video/mp4">
-                  Unable to load, possibly unsupported by the browser.
-                </video>
-            </div>
-
-            <div class="audio-container-custom">
-                <p class="share-regular">Favorite Song:</p>
-                <audio id="mainAudio" controls>
-                  Unable to load, possibly unsupported by the browser.
-                </audio>
-            </div>
-
-        </div>
-        
-      </div>
-
-      <!--Footer-->
-      <div class="footer">
-        <section class="layoutfooter caudex-regular tex">
-        <div class="grow1">Vlog Page Activity</div>
-        <div class="grow1">Members: Ursal, Valencia, Godinez, Garcia, Encinas</div>
-        <div class="grow1">07/09/2025</div>
-        </section>
-      </div>
-
-
-    </section>
-
-
-
-    <script>
-  // ---------------
-  // Accent Color Palette Randomizer
-  // ---------------
-  // This section randomizes the accent color palette for the site on each load.
-  // It shuffles the accent color pairs and sets them as CSS variables.
-  // This affects the overall color theme for backgrounds, buttons, and highlights.
-  const accentPairs = [
-    { normal: '--accent1', mid: '--accent1-mid', dark: '--accent1-dark' },
-    { normal: '--accent2', mid: '--accent2-mid', dark: '--accent2-dark' },
-    { normal: '--accent3', mid: '--accent3-mid', dark: '--accent3-dark' },
-    { normal: '--accent4', mid: '--accent4-mid', dark: '--accent4-dark' },
-    { normal: '--accent5', mid: '--accent5-mid', dark: '--accent5-dark' }
-  ];
-  // Shuffle indices to randomize accent selection for each session
-  const indices = [0, 1, 2, 3, 4].sort(() => Math.random() - 0.5);
-
-  // Assign shuffled accent colors to CSS variables for dynamic theming
-  for (let i = 0; i < 5; i++) {
-    const pair = accentPairs[indices[i]];
-    document.documentElement.style.setProperty(`--accent${i+1}`,
-      getComputedStyle(document.documentElement).getPropertyValue(pair.normal));
-    document.documentElement.style.setProperty(`--accent${i+1}-mid`,
-      getComputedStyle(document.documentElement).getPropertyValue(pair.mid));
-    document.documentElement.style.setProperty(`--accent${i+1}-dark`,
-      getComputedStyle(document.documentElement).getPropertyValue(pair.dark));
-  }
-
-  // Set main accent palette for the page from the selected random indices
-  // These are used for the header, footer, and main content backgrounds.
-  document.documentElement.style.setProperty('--accent',
-    getComputedStyle(document.documentElement).getPropertyValue(`--accent1`));
-  document.documentElement.style.setProperty('--accent-mid',
-    getComputedStyle(document.documentElement).getPropertyValue(`--accent1-mid`));
-  document.documentElement.style.setProperty('--accent-dark',
-    getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
-
-  // ---------------
-  // Sidebar Thumbnail Click Handler
-  // ---------------
-  // This section adds click event listeners to each sidebar video thumbnail.
-  // When a thumbnail is clicked:
-  //   - The corresponding video and audio sources are loaded into the main player.
-  //   - Video sources are loaded from Dropbox direct links.
-  //   - Audio sources are loaded from GitHub raw links.
-  //   - The video and audio elements are updated and reloaded.
-  document.querySelectorAll('.sidebar ul img').forEach(img => {
-    img.addEventListener('click', function() {
-      // Get video key from clicked thumbnail (uses alt attribute)
-      const videoKey = this.getAttribute('alt');
-
-      // Map video keys to Dropbox direct links
-      // These links must be direct and public; replace with your actual Dropbox file links.
-      // This affects which video is played in the main video player.
-      const dropboxMap = {
-        "Cid"     : "https://ucbb18c85a576dd64dede0baf9e3.dl.dropboxusercontent.com/cd/0/inline/CxQxRyQr8lWuniZB1RTv50kUnhIkDPhgVr3A9BbHO2gwvVu7ICr2OpqRnOEhln7FKkH-EjsUcSoUwqP6QFez0IROzE3uRsO41Yt3CoG7k_2wE-SZJqqblWzslAZTsV_pDYxYG_8bagPzgKe9e0exoyel/file#",
-        "Jairus"  : "https://uca8f559048f129bdf38a8a4d456.dl.dropboxusercontent.com/cd/0/inline/CxSu7WQw3YWhdW8FttHeEWDgGGkQPzz4S4RxJIeM7TO9yZlnPosWKRxIAkQBIMmifMfyMH2crsYT4lfgDhjlMtVCpzOTiB8pzCZIcL9PjB4Ec6oF9tA3BrA_ED5qcCCZebHosIsIyZ9XumgcWDhaXAuX/file#",
-        "Renz"    : "https://uc050ef1d3a49dedc6006affedae.dl.dropboxusercontent.com/cd/0/inline/CxS9-iJVqXVkwIrfSuRfQ3TqJ6KWmqe8SVh6WYcCGEWXK2-oTfYgZx2jcvQVAALGFN1ypCgb4R0j0hus1Uvqxk7ZnvDcOPPvkU595ihNFW-IilU11Gkhom7pc6wdhCfRJQEO6jJhQtfvexXEU6jcjwtx/file#",
-        "Stephen" : "https://uc68d3d1d223f3694838c8e8612d.dl.dropboxusercontent.com/cd/0/inline/CxSDc4mkJ2A0XfQevfl6XS8ISkFpkXVo6G-8zty85OyF_vpjRzksTJe8pugpqLWHNAqmzmVScjdOuC_75H9VT7sV7i14g8y0KzOwGRNx8AxwoQhkgRwOCd7IDVJFvsvGbT09jatNEvkLS3uVshL8RgWe/file#",
-        "Myke"    : "https://uc0b04dd97a3339d50ed90f330b1.dl.dropboxusercontent.com/cd/0/inline/CxSMdAvZB-4WnVQSPEWkK4hGFxjqc5aXnpNrjrro3NWF4oyf-ciZS8EVlUgS_HgMRBCbJzxHZFwFzdhB8v4OCiJDtenQaW2FftwQWSy4Y034vyjh2P66JJ2Mvv8_-DzxsUd8U2RmdbezlNEpsfCm7llV/file#"
-      };
-
-      // Map video keys to corresponding favorite song audio files
-      // These are loaded from GitHub raw links and played in the audio player.
-      // This affects which song is played for each video selection.
-      const audioMap = {
-        "Cid"     : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Ursal/獣ゆく細道.mp3",
-        "Jairus"  : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Garcia/sombr - back to friends (official audio).mp3",
-        "Renz"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Godinez/Airplane Mode.mp3",
-        "Stephen" : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Valencia/better for you.mp3",
-        "Myke"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3"
-      };
-
-      // Get Dropbox video link for selected thumbnail
-      const dbVideoSrc = dropboxMap[videoKey] || "";
-
-      // Get audio source for selected thumbnail
-      const audioSrc = audioMap[videoKey] || "";
-      
-      // Get video and audio elements from the DOM
-      const video = document.getElementById('mainVideo');
-      const audio = document.getElementById('mainAudio');
-
-      // Load selected video from Dropbox into main video player
-      // This updates the video shown to the user.
-      if (dbVideoSrc && video) {
-        video.src = dbVideoSrc;
-        video.load();
-      }
-
-      // Load selected audio into main audio player
-      // If no audio is available, clear and pause the audio player.
-      if (audio && audioSrc) {
-        audio.src = audioSrc;
-        audio.load();
-      } else if (audio) {
-        audio.src = "";
-        audio.pause();
-      }
-    });
-  });
-
-</script>
-
-
+  <audio controls>
+    <source src="jaisong.mp3" type="audio/mpeg">
+  </audio>
 </body>
-
 </html>
