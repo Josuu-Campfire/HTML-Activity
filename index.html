@@ -29,6 +29,7 @@
 
       <!--Header-->
       <div class="header">
+        <!--Load Logo from GitHub-->
         <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/hurricane.png" alt="meh">
 
         <h1>
@@ -44,6 +45,7 @@
 
         <ul class="hind-guntur-light">
 
+          <!--Load Thumbnails from GitHub-->
           <li>
               <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/CidThumb.png"     alt="Cid">
               <p class="hind-guntur-light">Ursal's Vlog</p>
@@ -78,12 +80,14 @@
 
         <div class="video-audio-stack">
 
+          <!--Video Display-->
             <div class="video-container-custom">
                 <video id="mainVideo" controls type="video/mp4">
                   Unable to load, possibly unsupported by the browser.
                 </video>
             </div>
 
+            <!--Audio Display-->
             <div class="audio-container-custom">
                 <p class="share-regular">Favorite Song:</p>
                 <audio id="mainAudio" controls>
@@ -110,9 +114,7 @@
 
 
     <script>
-  // ---------------
   // Accent Color Palette Randomizer
-  // ---------------
   // This section randomizes the accent color palette for the site on each load.
   // It shuffles the accent color pairs and sets them as CSS variables.
   // This affects the overall color theme for backgrounds, buttons, and highlights.
@@ -123,7 +125,7 @@
     { normal: '--accent4', mid: '--accent4-mid', dark: '--accent4-dark' },
     { normal: '--accent5', mid: '--accent5-mid', dark: '--accent5-dark' }
   ];
-  // Shuffle indices to randomize accent selection for each session
+  // Randmize indices to randomize accent selection for each session
   const indices = [0, 1, 2, 3, 4].sort(() => Math.random() - 0.5);
 
   // Assign shuffled accent colors to CSS variables for dynamic theming
@@ -146,9 +148,7 @@
   document.documentElement.style.setProperty('--accent-dark',
     getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
 
-  // ---------------
   // Sidebar Thumbnail Click Handler
-  // ---------------
   // This section adds click event listeners to each sidebar video thumbnail.
   // When a thumbnail is clicked:
   //   - The corresponding video and audio sources are loaded into the main player.
@@ -160,18 +160,18 @@
       // Get video key from clicked thumbnail (uses alt attribute)
       const videoKey = this.getAttribute('alt');
 
-      // Map video keys to Dropbox direct links
+      // Correlate video keys to Dropbox direct links
       // These links must be direct and public; replace with your actual Dropbox file links.
       // This affects which video is played in the main video player.
       const dropboxMap = {
-        "Cid"     : "https://ucbb18c85a576dd64dede0baf9e3.dl.dropboxusercontent.com/cd/0/inline/CxQxRyQr8lWuniZB1RTv50kUnhIkDPhgVr3A9BbHO2gwvVu7ICr2OpqRnOEhln7FKkH-EjsUcSoUwqP6QFez0IROzE3uRsO41Yt3CoG7k_2wE-SZJqqblWzslAZTsV_pDYxYG_8bagPzgKe9e0exoyel/file#",
-        "Jairus"  : "https://uca8f559048f129bdf38a8a4d456.dl.dropboxusercontent.com/cd/0/inline/CxSu7WQw3YWhdW8FttHeEWDgGGkQPzz4S4RxJIeM7TO9yZlnPosWKRxIAkQBIMmifMfyMH2crsYT4lfgDhjlMtVCpzOTiB8pzCZIcL9PjB4Ec6oF9tA3BrA_ED5qcCCZebHosIsIyZ9XumgcWDhaXAuX/file#",
-        "Renz"    : "https://uc050ef1d3a49dedc6006affedae.dl.dropboxusercontent.com/cd/0/inline/CxS9-iJVqXVkwIrfSuRfQ3TqJ6KWmqe8SVh6WYcCGEWXK2-oTfYgZx2jcvQVAALGFN1ypCgb4R0j0hus1Uvqxk7ZnvDcOPPvkU595ihNFW-IilU11Gkhom7pc6wdhCfRJQEO6jJhQtfvexXEU6jcjwtx/file#",
-        "Stephen" : "https://uc68d3d1d223f3694838c8e8612d.dl.dropboxusercontent.com/cd/0/inline/CxSDc4mkJ2A0XfQevfl6XS8ISkFpkXVo6G-8zty85OyF_vpjRzksTJe8pugpqLWHNAqmzmVScjdOuC_75H9VT7sV7i14g8y0KzOwGRNx8AxwoQhkgRwOCd7IDVJFvsvGbT09jatNEvkLS3uVshL8RgWe/file#",
-        "Myke"    : "https://uc0b04dd97a3339d50ed90f330b1.dl.dropboxusercontent.com/cd/0/inline/CxSMdAvZB-4WnVQSPEWkK4hGFxjqc5aXnpNrjrro3NWF4oyf-ciZS8EVlUgS_HgMRBCbJzxHZFwFzdhB8v4OCiJDtenQaW2FftwQWSy4Y034vyjh2P66JJ2Mvv8_-DzxsUd8U2RmdbezlNEpsfCm7llV/file#"
+        "Cid"     : "https://www.dropbox.com/scl/fi/etyfx7we37jh95ps8ezez/Cid.mp4?rlkey=5zk09q32gz3d09dh7cgeo4bkq&st=etpcehds&raw=1",
+        "Jairus"  : "https://www.dropbox.com/scl/fi/dg3w90cnucuhm625tfsgb/Jairus.mp4?rlkey=2ge65qkkbyh3wljmdmlr3dpej&st=iu0ipu99&raw=1",
+        "Renz"    : "https://www.dropbox.com/scl/fi/2bljr3vm5ukw1nekhbwe7/Renz.mp4?rlkey=7z9mr267dygs83abwxkgladcg&st=tvy7kk58&raw=1",
+        "Stephen" : "https://www.dropbox.com/scl/fi/w88pgx7qdgh6y3tfmplz9/Stephen.mp4?rlkey=i2yqgaha3f5qdy8ayr3uyis25&st=htxvh1ms&raw=1",
+        "Myke"    : "https://www.dropbox.com/scl/fi/z9li58p9bak517m963i2y/Myke.mp4?rlkey=ejhc8udn4fpprljd5jrwez5v2&st=q5z2zy9z&raw=1"
       };
 
-      // Map video keys to corresponding favorite song audio files
+      // Correlate video keys to corresponding favorite song audio files/links
       // These are loaded from GitHub raw links and played in the audio player.
       // This affects which song is played for each video selection.
       const audioMap = {
