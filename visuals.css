@@ -1,35 +1,35 @@
 /*
   Root Variables: Color Palette
   - Defines accent and gray colors used throughout the site.
-  - Accent colors are shuffled for dynamic theme.
+  - Accent colors are randomized every time.
 */
 :root {
-  --accent1: #8a4b1c;
-  --accent1-mid: #1c6b8a;
-  --accent1-dark: #0e0e0e;
+  --accent1: #8a4b1c;      /* Primary accent color 1 */
+  --accent1-mid: #1c6b8a;  /* Mid-tone for accent 1 */
+  --accent1-dark: #0e0e0e; /* Dark shade for accent 1 */
 
-  --accent2: #5d3263;
-  --accent2-mid: #32633d;
-  --accent2-dark: #0b0a0c;
+  --accent2: #5d3263;      /* Primary accent color 2 */
+  --accent2-mid: #32633d;  /* Mid-tone for accent 2 */
+  --accent2-dark: #0b0a0c; /* Dark shade for accent 2 */
 
-  --accent3: #35606a;
-  --accent3-mid: #6a5735;
-  --accent3-dark: #080a0b;
+  --accent3: #35606a;      /* Primary accent color 3 */
+  --accent3-mid: #6a5735;  /* Mid-tone for accent 3 */
+  --accent3-dark: #080a0b; /* Dark shade for accent 3 */
 
-  --accent4: #7a1f2e;
-  --accent4-mid: #1f7a68;
-  --accent4-dark: #0d0f10;
+  --accent4: #7a1f2e;      /* Primary accent color 4 */
+  --accent4-mid: #1f7a68;  /* Mid-tone for accent 4 */
+  --accent4-dark: #0d0f10; /* Dark shade for accent 4 */
 
-  --accent5: #8c6a1f;
-  --accent5-mid: #1f2c8c;
-  --accent5-dark: #05060a;
+  --accent5: #8c6a1f;      /* Primary accent color 5 */
+  --accent5-mid: #1f2c8c;  /* Mid-tone for accent 5 */
+  --accent5-dark: #05060a; /* Dark shade for accent 5 */
 
-  --accent: var(--accent1);
-  --accent-mid: var(--accent1-mid);
-  --accent-dark: var(--accent1-dark);
+  --accent: var(--accent1);      /* Main accent color used for header/footer */
+  --accent-mid: var(--accent1-mid); /* Main mid-tone accent */
+  --accent-dark: var(--accent1-dark); /* Main dark accent for backgrounds */
 
-  --gray1: #14182e;
-  --gray2: #1b1f21;
+  --gray1: #14182e; /* Deep gray for backgrounds/borders */
+  --gray2: #1b1f21; /* Slightly lighter gray for backgrounds */
 }
 
 /*
@@ -40,35 +40,35 @@ Base HTML & Body Styles
 html, body {
     height: 100%;
     min-height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Removes default browser margin */
+    padding: 0; /* Removes default browser padding */
 }
 .body{
     margin: 0;   
-    background-color: var(--accent-dark); 
-    font-family: "Hind Guntur", sans-serif;
-    color: #f5ffe8;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    background-color: var(--accent-dark); /* Sets main background color */
+    font-family: "Hind Guntur", sans-serif; /* Applies main font */
+    color: #f5ffe8; /* Sets default text color for contrast */
+    min-height: 100vh; /* Ensures body fills viewport */
+    display: flex; /* Enables flexbox for vertical stacking */
+    flex-direction: column; /* Stacks children vertically */
 }
 
 /*
   Layout Grid
-  - Uses CSS Grid for main page structure.
+  - Uses CSS Grid for main page layout.
   - Sidebar on left, main content on right, header and footer full width.
 */
 .layout {
-  flex: 1 0 auto;
-  display: grid;
+  flex: 1 0 auto; /* Allows layout to grow/shrink as needed */
+  display: grid; /* Enables grid layout */
   grid:
     "header header" auto
     "sidebar main" 1fr
     "footer footer" auto
-    / 256px 1fr;
-  gap: 0px;
-  min-height: 100vh;
-  height: 100vh;
+    / 256px 1fr; /* Sidebar fixed width, main flexible */
+  gap: 0px; /* No gap between grid areas */
+  min-height: 100vh; /* Ensures layout fills viewport */
+  height: 100vh; /* Forces layout to fill viewport height */
 }
 
 /*
@@ -85,9 +85,10 @@ html, body {
       "main" auto
       "sidebar" 1fr
       "footer" auto
-      / 1fr;
+      / 1fr; /* Single column layout for vertical screens */
     min-height: 100vh;
-    height: 100vh; /* Ensure layout fills the viewport */
+    height: 100vh;
+    position: relative; /* Allows absolute positioning of footer */
   }
   .main {
     grid-area: main;
@@ -99,30 +100,30 @@ html, body {
     justify-content: center;
     align-items: center;
     height: auto;
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrolling in main area */
   }
   .body, html, body {
     height: 100vh;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Prevents page scrolling */
   }
   .sidebar {
     grid-area: sidebar;
     width: 100%;
     min-width: 0;
     min-height: 0;
-    max-height: 260px;
-    overflow-y: auto;
+    max-height: 260px; /* Limits sidebar height */
+    overflow-y: auto; /* Allows vertical scrolling if content overflows */
     background-color: var(--gray2);
     padding: 0.5em 0.5em 1em 0.5em;
     box-sizing: border-box;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 12px 12px; /* Rounds bottom corners */
   }
   .footer {
     width: 100%;
     margin-top: 0.5em;
     padding: 4px;
-    position: absolute;
+    position: absolute; /* Footer stays at bottom of viewport */
     left: 0;
     bottom: 0;
     z-index: 10;
@@ -132,10 +133,7 @@ html, body {
     font-size: 10px;
   }
   img {
-    width: 100px;
-  }
-  .layout {
-    position: relative;
+    width: 100px; /* Smaller images for mobile */
   }
 }
 
@@ -145,41 +143,28 @@ html, body {
   - Contains logo and site title.
 */
 .header { 
-    grid-area: header; 
-    background-color: var(--accent);
-    font-family: "Share", bold;
-    font-size: 20px;
-    padding-left: 22px;
+    grid-area: header; /* Places header in grid */
+    background-color: var(--accent); /* Uses accent color for background */
+    font-family: "Share", bold; /* Header font */
+    font-size: 20px; /* Header font size */
+    padding-left: 22px; /* Space before logo/title */
     padding-top: 1%;
     padding-bottom: 1%;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    display: flex; /* Flexbox for logo/title alignment */
+    align-items: center; /* Vertically centers content */
+    gap: 16px; /* Space between logo and title */
     position: relative;
 }
 .header img {
-    width: 3%;
+    width: 3%; /* Logo size relative to header */
     height: auto;
     display: block;
-    filter: invert();
+    filter: invert(); /* Inverts logo color */
 }
 .header h1 {
     margin: 0;
-    font-size: 160%;
+    font-size: 160%; /* Size of site title */
     font-family: "Share", bold;
-}
-
-/*
-  Audio Header (Hidden)
-  - Used for header audio, currently hidden.
-*/
-.audio-container-header audio {
-    width: 220px;
-    max-width: 100%;
-    object-fit: contain;
-    display: block;
-    background: #000;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
 }
 
 /*
@@ -188,74 +173,74 @@ html, body {
   - Scrollable list of video selections.
 */
 .sidebar {
-    grid-area: sidebar;
-    background-color: var(--gray2);
-    color: #f5ffe8;
-    padding: 1em;
+    grid-area: sidebar; /* Places sidebar in grid */
+    background-color: var(--gray2); /* Sidebar background */
+    color: #f5ffe8; /* Sidebar text color */
+    padding: 1em; /* Inner spacing */
     font-family: "Hind Guntur", sans-serif;
-    min-width: 0;
-    display: flex;
+    min-width: 0; /* Prevents overflow */
+    display: flex; /* Flexbox for vertical stacking */
     flex-direction: column;
     min-height: 0;
     height: 100%;
 }
 .sidebar h2 {
-    flex-shrink: 0;
-    margin-bottom: 0.5em;
+    flex-shrink: 0; /* Prevents shrinking */
+    margin-bottom: 0.5em; /* Space below heading */
 }
 /* Sidebar list styles */
 .sidebar ul {
-    flex: 1 1 auto;
-    overflow-y: auto;
-    max-height: 100%;
+    flex: 1 1 auto; /* List grows to fill sidebar */
+    overflow-y: auto; /* Scrolls vertically if needed */
+    max-height: 100%; /* Prevents overflow */
     margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none; /* Removes default bullets */
     display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    align-items: center;
-    scrollbar-width: none;
+    flex-direction: column; /* Stacks thumbnails vertically */
+    gap: 0.5em; /* Space between thumbnails */
+    align-items: center; /* Centers thumbnails horizontally */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
 }
 /* Hide scrollbar for Webkit browsers */
 .sidebar ul::-webkit-scrollbar {
-    display: none;
+    display: none; /* Hides scrollbar in Chrome/Safari */
 }
 /* Sidebar list item styles */
 .sidebar ul li {
-    flex-shrink: 0;
-    width: 120%;
-    max-width: 180px;
+    flex-shrink: 0; /* Prevents shrinking */
+    width: 120%; /* Slightly wider than container for effect */
+    max-width: 180px; /* Maximum width for thumbnails */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centers thumbnail and text */
     justify-content: flex-start;
-    gap: 0.3em;
+    gap: 0.3em; /* Space between image and text */
     margin: 0 auto;
     text-align: center;
     position: relative;
 }
 /* Sidebar thumbnail images */
 .sidebar ul li img {
-    width: 100%;
-    max-width: 160px;
+    width: 100%; /* Fills list item width */
+    max-width: 160px; /* Maximum image width */
     height: auto;
     display: block;
-    border-radius: 2px;
+    border-radius: 2px; /* Slightly rounded corners */
     margin: 0 auto;
-    border-width: 4px;
+    border-width: 4px; /* Thick border for highlight */
     border-style: solid;
-    border-color: var(--gray1);
-    transition: border-color 0.2s;
+    border-color: var(--gray1); /* Default border color */
+    transition: border-color 0.2s; /* Smooth border color change */
 }
 /* Highlight border on hover */
 .sidebar ul li:hover img {
-    border-color: #f5ffe8;
+    border-color: #f5ffe8; /* Highlights border on hover */
 }
 /* Sidebar video title text */
 .sidebar ul p {
     margin: 0;
-    font-size: 1em;
+    font-size: 1em; /* Standard font size for titles */
     color: #f5ffe8;
     font-family: "Hind Guntur", sans-serif;
     text-align: center;
@@ -264,115 +249,119 @@ html, body {
 /*
   Main Content Area
   - Contains the video and audio player stack.
+  - Centers content both vertically and horizontally.
 */
 .main { 
-    grid-area: main; 
+    grid-area: main; /* Places main in grid */
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horizontally centers content */
+    align-items: center; /* Vertically centers content */
     min-height: 0;
     min-width: 0;
-    height: 100%;
+    height: 100%; /* Fills available grid space */
 }
 
 /*
   Video & Audio Stack
   - Holds the video and audio containers.
   - Centers content and sets max width.
+  - Stacks video and audio vertically.
 */
 .video-audio-stack {
-    width: 100%;
-    max-width: 900px;
-    height: 70vh; 
+    width: 100%; /* Fills parent width */
+    max-width: 900px; /* Maximum width for desktop */
+    height: 70vh; /* Sets stack height relative to viewport */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
+    flex-direction: column; /* Stacks video above audio */
+    align-items: center; /* Centers stack horizontally */
+    justify-content: center; /* Centers stack vertically */
+    gap: 0; /* No gap between video and audio */
 }
 /* Video container styling */
 .video-container-custom {
-    width: 100%;
-    max-width: 900px;
-    flex: 1 1 60%;
+    width: 100%; /* Fills stack width */
+    max-width: 900px; /* Maximum width for desktop */
+    flex: 1 1 60%; /* Grows to fill available space */
     min-height: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--accent-mid);
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
-    box-shadow: 0 4px 24px var(--accent-dark);
+    justify-content: center; /* Centers video horizontally */
+    align-items: center; /* Centers video vertically */
+    background: var(--accent-mid); /* Video container background */
+    border-radius: 12px 12px 0 0; /* Rounds top corners */
+    overflow: hidden; /* Clips overflow */
+    box-shadow: 0 4px 24px var(--accent-dark); /* Adds shadow for depth */
 }
 /* Audio container styling */
 .audio-container-custom {
-    width: 100%;
-    max-width: 900px;
-    flex: 0 0 70px;
-    background: var(--accent-mid);
-    border-radius: 0 0 12px 12px;
+    width: 100%; /* Fills stack width */
+    max-width: 900px; /* Maximum width for desktop */
+    flex: 0 0 70px; /* Fixed height for audio controls */
+    background: var(--accent-mid); /* Audio container background */
+    border-radius: 0 0 12px 12px; /* Rounds bottom corners */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 10px 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    justify-content: center; /* Centers audio vertically */
+    align-items: center; /* Centers audio horizontally */
+    padding: 10px 0 10px 0; /* Vertical padding */
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10); /* Subtle shadow */
 }
 .audio-container-custom p {
-    margin: 0 0 8px 0;
+    margin: 0 0 8px 0; /* Space below text */
     text-align: center;
     width: 100%;
 }
 /* Main video element */
 #mainVideo {
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%; /* Fills container width */
+    height: 100%; /* Fills container height */
+    max-height: 100%; /* Prevents overflow */
+    object-fit: contain; /* Maintains aspect ratio */
     display: block;
-    background: var(--gray1);
+    background: var(--gray1); /* Video background */
     box-shadow: none;
 }
 /* Hide header audio containers */
 #audio-container-header,
 .audio-container-header {
-    display: none !important;
+    display: none !important; /* Hides header audio elements */
 }
 /* Main audio element */
 .audio-container-custom audio {
-    width: 90%;
-    max-width: 600px;
-    background: var(--accent-mid);
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    width: 90%; /* Fills most of container width */
+    max-width: 600px; /* Maximum width for desktop */
+    background: var(--accent-mid); /* Audio background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10); /* Subtle shadow */
 }
 
 /*
   Footer Styles
   - Styles for the bottom footer bar.
   - Contains page info and member names.
+  - Uses flexbox for layout and spacing.
 */
 .footer { 
-    margin-top: 1%;
-    grid-area: footer; 
-    background-color: var(--accent);
-    padding: 6px;
+    margin-top: 1%; /* Space above footer */
+    grid-area: footer; /* Places footer in grid */
+    background-color: var(--accent); /* Footer background */
+    padding: 6px; /* Inner spacing */
 }
 .layoutfooter {
-  width: 100%;
-  display: flex;
-  gap: 16px;
+  width: 100%; /* Fills footer width */
+  display: flex; /* Flexbox for horizontal layout */
+  gap: 16px; /* Space between footer items */
 }
 .layoutfooter .tex{
-    font-size: 8px;
-    align-items: center;
+    font-size: 8px; /* Small font for extra info */
+    align-items: center; /* Centers text vertically */
 }
-.grow1 { flex-grow: 1; }
+.grow1 { flex-grow: 1; } /* Utility to expand element in flexbox */
 
 /*
   Font Classes
   - Utility classes for custom fonts.
+  - Used for headings and special text.
 */
 .hind-guntur-light {
   font-family: "Hind Guntur", sans-serif;
@@ -398,6 +387,7 @@ html, body {
 /*
   Global Image Styles
   - Sets default image width for large screens.
+  - Used for images outside sidebar thumbnails.
 */
 img {
     width: 500px;
@@ -406,17 +396,18 @@ img {
 /*
   Custom Media Controls Styling
   - Customizes browser media controls for video/audio.
+  - Changes colors and shapes for a more integrated look.
 */
 /* Webkit browsers: video/audio controls */
 .video-container-custom video::-webkit-media-controls-volume-slider,
 .audio-container-custom audio::-webkit-media-controls-volume-slider {
-    background: var(--accent-mid);
+    background: var(--accent-mid); /* Volume slider background */
     border-radius: 4px;
     height: 4px;
 }
 .video-container-custom video::-webkit-media-controls-mute-button,
 .audio-container-custom audio::-webkit-media-controls-mute-button {
-    filter: invert(50%) sepia(1) saturate(5) hue-rotate(180deg);
+    filter: invert(50%) sepia(1) saturate(5) hue-rotate(180deg); /* Custom mute button color */
 }
 .video-container-custom video::-webkit-media-controls-volume-slider-container,
 .audio-container-custom audio::-webkit-media-controls-volume-slider-container {
@@ -425,17 +416,17 @@ img {
 }
 .video-container-custom video::-webkit-media-controls-panel,
 .audio-container-custom audio::-webkit-media-controls-panel {
-    background: var(--accent-mid);
+    background: var(--accent-mid); /* Panel background */
     border-radius: 8px;
 }
 
 /* Firefox: video/audio controls */
 .video-container-custom video::-moz-range-thumb,
 .audio-container-custom audio::-moz-range-thumb {
-    background: var(--accent);
-    border: 2px solid var(--accent-dark);
+    background: var(--accent); /* Thumb color */
+    border: 2px solid var(--accent-dark); /* Thumb border */
 }
 .video-container-custom video::-moz-range-track,
 .audio-container-custom audio::-moz-range-track {
-    background: var(--accent-mid);
+    background: var(--accent-mid); /* Track color */
 }

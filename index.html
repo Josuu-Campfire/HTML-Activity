@@ -1,219 +1,292 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Import CSS-->
+    <!-- Import CSS for visual styling and layout -->
     <link rel="stylesheet" href="visuals.css">
     
     <title>Hyvenn</title>
+    <!-- Page icon loaded from GitHub raw file -->
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/cube.png">
 
-    
-    <!--Embed Google Fonts-->
+    <!-- Embed Google Fonts for custom typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Hind+Guntur:wght@300;400;500;600;700&family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
 </head>
-
 <body class="body">
 
-
     <section class="layout">
-
-      <!--Header-->
+      <!-- Header Section
+           - Displays logo and site title.
+           - Uses accent color and custom font.
+      -->
       <div class="header">
-        <!--Load Logo from GitHub-->
+        <!-- Logo loaded from GitHub raw file for fast CDN delivery -->
         <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/hurricane.png" alt="meh">
-
         <h1>
             Hyvenn
         </h1>
       </div>
 
-      <!--Sidebar-->
+      <!-- Sidebar Section
+           - Contains a scrollable list of video thumbnails.
+           - Each thumbnail loads a specific video and song.
+      -->
       <div class="sidebar">
         <h2 class="caudex-regular">
             Videos:
         </h2>
-
         <ul class="hind-guntur-light">
-
-          <!--Load Thumbnails from GitHub-->
+          <!-- Each list item represents a video selection.
+               - Thumbnail images loaded from GitHub raw files.
+               - alt attribute used as key for video/audio mapping.
+          -->
           <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/CidThumb.png"     alt="Cid">
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/CidThumb.png" alt="Cid">
               <p class="hind-guntur-light">Ursal's Vlog</p>
           </li>
-
           <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/JairusThumb.png"  alt="Jairus">
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/JairusThumb.png" alt="Jairus">
               <p class="hind-guntur-light">Jairus's Vlog</p>
           </li>
-
           <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/RenzThumb.png"    alt="Renz">
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/RenzThumb.png" alt="Renz">
               <p class="hind-guntur-light">Godinez's Vlog</p>
           </li>
-
           <li>
-              <img  src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/StephenThumb.png" alt="Stephen">
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/StephenThumb.png" alt="Stephen">
               <p class="hind-guntur-light">Valencia's Vlog</p>
           </li>
-
           <li>
-              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/MykeThumb.png"     alt="Myke">
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/MykeThumb.png" alt="Myke">
               <p class="hind-guntur-light">Encinas's Vlog</p>
           </li>
-
         </ul>
       </div>
 
-
-      <!--The body-->
+      <!-- Main Content Section
+           - Contains the video and audio player stack.
+           - Video and audio are loaded dynamically based on sidebar selection.
+      -->
       <div class="main">
-
         <div class="video-audio-stack">
-
-          <!--Video Display-->
-            <div class="video-container-custom">
-                <video id="mainVideo" controls type="video/mp4">
-                  Unable to load, possibly unsupported by the browser.
-                </video>
-            </div>
-
-            <!--Audio Display-->
-            <div class="audio-container-custom">
-                <p class="share-regular">Favorite Song:</p>
-                <audio id="mainAudio" controls>
-                  Unable to load, possibly unsupported by the browser.
-                </audio>
-            </div>
-
+          <!-- Video Display
+               - Shows selected video.
+               - Video source is set via JavaScript.
+          -->
+          <div class="video-container-custom">
+              <video id="mainVideo" controls type="video/mp4">
+                Unable to load, possibly unsupported by the browser.
+              </video>
+          </div>
+          <!-- Audio Display
+               - Shows favorite song for selected video.
+               - Audio source is set via JavaScript.
+          -->
+          <div class="audio-container-custom">
+              <p class="share-regular">Favorite Song:</p>
+              <audio id="mainAudio" controls>
+                Unable to load, possibly unsupported by the browser.
+              </audio>
+          </div>
         </div>
-        
       </div>
 
-      <!--Footer-->
+      <!-- Footer Section
+           - Displays page info, member names, and date.
+           - Uses flexbox for layout.
+      -->
       <div class="footer">
         <section class="layoutfooter caudex-regular tex">
-        <div class="grow1">Vlog Page Activity</div>
-        <div class="grow1">Members: Ursal, Valencia, Godinez, Garcia, Encinas</div>
-        <div class="grow1">07/09/2025</div>
+          <div class="grow1">Vlog Page Activity</div>
+          <div class="grow1">Members: Ursal, Valencia, Godinez, Garcia, Encinas</div>
+          <div class="grow1">07/09/2025</div>
         </section>
       </div>
-
-
     </section>
 
-
-
     <script>
-  // Accent Color Palette Randomizer
-  // This section randomizes the accent color palette for the site on each load.
-  // It shuffles the accent color pairs and sets them as CSS variables.
-  // This affects the overall color theme for backgrounds, buttons, and highlights.
-  const accentPairs = [
-    { normal: '--accent1', mid: '--accent1-mid', dark: '--accent1-dark' },
-    { normal: '--accent2', mid: '--accent2-mid', dark: '--accent2-dark' },
-    { normal: '--accent3', mid: '--accent3-mid', dark: '--accent3-dark' },
-    { normal: '--accent4', mid: '--accent4-mid', dark: '--accent4-dark' },
-    { normal: '--accent5', mid: '--accent5-mid', dark: '--accent5-dark' }
-  ];
-  // Randmize indices to randomize accent selection for each session
-  const indices = [0, 1, 2, 3, 4].sort(() => Math.random() - 0.5);
+      // Accent Color Palette Randomizer
+      // Randomizes accent color palette for the site on each load.
+      // Shuffles accent color pairs and sets them as CSS variables.
+      // Affects overall color theme for backgrounds, buttons, and highlights.
+      const accentPairs = [
+        { normal: '--accent1', mid: '--accent1-mid', dark: '--accent1-dark' },
+        { normal: '--accent2', mid: '--accent2-mid', dark: '--accent2-dark' },
+        { normal: '--accent3', mid: '--accent3-mid', dark: '--accent3-dark' },
+        { normal: '--accent4', mid: '--accent4-mid', dark: '--accent4-dark' },
+        { normal: '--accent5', mid: '--accent5-mid', dark: '--accent5-dark' }
+      ];
+      // Shuffle indices to randomize accent selection for each session
+      const indices = [0, 1, 2, 3, 4].sort(() => Math.random() - 0.5);
 
-  // Assign shuffled accent colors to CSS variables for dynamic theming
-  for (let i = 0; i < 5; i++) {
-    const pair = accentPairs[indices[i]];
-    document.documentElement.style.setProperty(`--accent${i+1}`,
-      getComputedStyle(document.documentElement).getPropertyValue(pair.normal));
-    document.documentElement.style.setProperty(`--accent${i+1}-mid`,
-      getComputedStyle(document.documentElement).getPropertyValue(pair.mid));
-    document.documentElement.style.setProperty(`--accent${i+1}-dark`,
-      getComputedStyle(document.documentElement).getPropertyValue(pair.dark));
-  }
-
-  // Set main accent palette for the page from the selected random indices
-  // These are used for the header, footer, and main content backgrounds.
-  document.documentElement.style.setProperty('--accent',
-    getComputedStyle(document.documentElement).getPropertyValue(`--accent1`));
-  document.documentElement.style.setProperty('--accent-mid',
-    getComputedStyle(document.documentElement).getPropertyValue(`--accent1-mid`));
-  document.documentElement.style.setProperty('--accent-dark',
-    getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
-
-  // Sidebar Thumbnail Click Handler
-  // This section adds click event listeners to each sidebar video thumbnail.
-  // When a thumbnail is clicked:
-  //   - The corresponding video and audio sources are loaded into the main player.
-  //   - Video sources are loaded from Dropbox direct links.
-  //   - Audio sources are loaded from GitHub raw links.
-  //   - The video and audio elements are updated and reloaded.
-  document.querySelectorAll('.sidebar ul img').forEach(img => {
-    img.addEventListener('click', function() {
-      // Get video key from clicked thumbnail (uses alt attribute)
-      const videoKey = this.getAttribute('alt');
-
-      // Correlate video keys to Dropbox direct links
-      // These links must be direct and public; replace with your actual Dropbox file links.
-      // This affects which video is played in the main video player.
-      const dropboxMap = {
-        "Cid"     : "https://www.dropbox.com/scl/fi/etyfx7we37jh95ps8ezez/Cid.mp4?rlkey=5zk09q32gz3d09dh7cgeo4bkq&st=etpcehds&raw=1",
-        "Jairus"  : "https://www.dropbox.com/scl/fi/dg3w90cnucuhm625tfsgb/Jairus.mp4?rlkey=2ge65qkkbyh3wljmdmlr3dpej&st=iu0ipu99&raw=1",
-        "Renz"    : "https://www.dropbox.com/scl/fi/2bljr3vm5ukw1nekhbwe7/Renz.mp4?rlkey=7z9mr267dygs83abwxkgladcg&st=tvy7kk58&raw=1",
-        "Stephen" : "https://www.dropbox.com/scl/fi/w88pgx7qdgh6y3tfmplz9/Stephen.mp4?rlkey=i2yqgaha3f5qdy8ayr3uyis25&st=htxvh1ms&raw=1",
-        "Myke"    : "https://www.dropbox.com/scl/fi/z9li58p9bak517m963i2y/Myke.mp4?rlkey=ejhc8udn4fpprljd5jrwez5v2&st=q5z2zy9z&raw=1"
-      };
-
-      // Correlate video keys to corresponding favorite song audio files/links
-      // These are loaded from GitHub raw links and played in the audio player.
-      // This affects which song is played for each video selection.
-      const audioMap = {
-        "Cid"     : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Ursal/獣ゆく細道.mp3",
-        "Jairus"  : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Garcia/sombr - back to friends (official audio).mp3",
-        "Renz"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Godinez/Airplane Mode.mp3",
-        "Stephen" : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Valencia/better for you.mp3",
-        "Myke"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3"
-      };
-
-      // Get Dropbox video link for selected thumbnail
-      const dbVideoSrc = dropboxMap[videoKey] || "";
-
-      // Get audio source for selected thumbnail
-      const audioSrc = audioMap[videoKey] || "";
-      
-      // Get video and audio elements from the DOM
-      const video = document.getElementById('mainVideo');
-      const audio = document.getElementById('mainAudio');
-
-      // Load selected video from Dropbox into main video player
-      // This updates the video shown to the user.
-      if (dbVideoSrc && video) {
-        video.src = dbVideoSrc;
-        video.load();
+      // Assign shuffled accent colors to CSS variables for dynamic theming
+      for (let i = 0; i < 5; i++) {
+        const pair = accentPairs[indices[i]];
+        document.documentElement.style.setProperty(`--accent${i+1}`,
+          getComputedStyle(document.documentElement).getPropertyValue(pair.normal));
+        document.documentElement.style.setProperty(`--accent${i+1}-mid`,
+          getComputedStyle(document.documentElement).getPropertyValue(pair.mid));
+        document.documentElement.style.setProperty(`--accent${i+1}-dark`,
+          getComputedStyle(document.documentElement).getPropertyValue(pair.dark));
       }
 
-      // Load selected audio into main audio player
-      // If no audio is available, clear and pause the audio player.
-      if (audio && audioSrc) {
-        audio.src = audioSrc;
-        audio.load();
-      } else if (audio) {
-        audio.src = "";
-        audio.pause();
+      // Set main accent palette for the page from the selected random indices
+      // Used for header, footer, and main content backgrounds.
+      document.documentElement.style.setProperty('--accent',
+        getComputedStyle(document.documentElement).getPropertyValue(`--accent1`));
+      document.documentElement.style.setProperty('--accent-mid',
+        getComputedStyle(document.documentElement).getPropertyValue(`--accent1-mid`));
+      document.documentElement.style.setProperty('--accent-dark',
+        getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
+
+      // Sidebar Thumbnail Click Handler
+      // Adds click event listeners to each sidebar video thumbnail.
+      // When a thumbnail is clicked:
+      //   - Loads corresponding video and audio sources into main player.
+      //   - Video sources are loaded from Dropbox direct links.
+      //   - Audio sources are loaded from GitHub raw links.
+      //   - Video and audio elements are updated and reloaded.
+      document.querySelectorAll('.sidebar ul img').forEach(img => {
+        img.addEventListener('click', function() {
+          // Get video key from clicked thumbnail (uses alt attribute)
+          const videoKey = this.getAttribute('alt');
+
+          // Map video keys to Dropbox direct links
+          // These links must be direct and public.
+          // Determines which video is played in the main video player.
+          const dropboxMap = {
+            "Cid"     : "https://www.dropbox.com/scl/fi/etyfx7we37jh95ps8ezez/Cid.mp4?rlkey=5zk09q32gz3d09dh7cgeo4bkq&st=etpcehds&raw=1",
+            "Jairus"  : "https://www.dropbox.com/scl/fi/dg3w90cnucuhm625tfsgb/Jairus.mp4?rlkey=2ge65qkkbyh3wljmdmlr3dpej&st=iu0ipu99&raw=1",
+            "Renz"    : "https://www.dropbox.com/scl/fi/2bljr3vm5ukw1nekhbwe7/Renz.mp4?rlkey=7z9mr267dygs83abwxkgladcg&st=tvy7kk58&raw=1",
+            "Stephen" : "https://www.dropbox.com/scl/fi/w88pgx7qdgh6y3tfmplz9/Stephen.mp4?rlkey=i2yqgaha3f5qdy8ayr3uyis25&st=htxvh1ms&raw=1",
+            "Myke"    : "https://www.dropbox.com/scl/fi/z9li58p9bak517m963i2y/Myke.mp4?rlkey=ejhc8udn4fpprljd5jrwez5v2&st=q5z2zy9z&raw=1"
+          };
+
+          // Map video keys to corresponding favorite song audio files/links
+          // Loaded from GitHub raw links and played in the audio player.
+          // Determines which song is played for each video selection.
+          const audioMap = {
+            "Cid"     : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Ursal/獣ゆく細道.mp3",
+            "Jairus"  : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Garcia/sombr - back to friends (official audio).mp3",
+            "Renz"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Godinez/Airplane Mode.mp3",
+            "Stephen" : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Valencia/better for you.mp3",
+            "Myke"    : "https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3"
+          };
+
+          // Get Dropbox video link for selected thumbnail
+          const dbVideoSrc = dropboxMap[videoKey] || "";
+
+          // Get audio source for selected thumbnail
+          const audioSrc = audioMap[videoKey] || "";
+          
+          // Get video and audio elements from the DOM
+          const video = document.getElementById('mainVideo');
+          const audio = document.getElementById('mainAudio');
+
+          // Load selected video from Dropbox into main video player
+          // Updates the video shown to the user.
+          if (dbVideoSrc && video) {
+            video.src = dbVideoSrc;
+            video.load();
+          }
+
+          // Load selected audio into main audio player
+          // If no audio is available, clear and pause the audio player.
+          if (audio && audioSrc) {
+            audio.src = audioSrc;
+            audio.load();
+          } else if (audio) {
+            audio.src = "";
+            audio.pause();
+          }
+        });
+      });
+
+      // Beat Detector Integration
+      // Sets up a simple beat detector using the Web Audio API.
+      // Analyzes audio frequencies and changes the background color
+      // based on detected bass level while audio is playing.
+      // Creates a visual effect that reacts to the music.
+      let ctx, src, analyser, animationId;
+
+      // Function to set up beat detection for a given audio element
+      function setupBeatDetection(audioElement) {
+        // Clean up previous context if exists
+        if (ctx) {
+          ctx.close();
+          ctx = null;
+          src = null;
+          analyser = null;
+          if (animationId) cancelAnimationFrame(animationId);
+        }
+
+        // Only set up if audioElement has a valid src
+        if (!audioElement.src) return;
+
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        src = ctx.createMediaElementSource(audioElement);
+        analyser = ctx.createAnalyser();
+
+        src.connect(analyser);
+        analyser.connect(ctx.destination);
+
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        function animate() {
+          analyser.getByteFrequencyData(dataArray);
+
+          // Focus on bass / low frequencies (first few bins)
+          let bass = 0;
+          for (let i = 0; i < 10; i++) {
+            bass += dataArray[i];
+          }
+          bass = bass / 10;
+
+          // Change background color based on bass level
+          if (bass > 150) { 
+            document.body.style.backgroundColor = "rgba(255,255,255,0.2)";
+          } else {
+            document.body.style.backgroundColor = "";
+          }
+
+          animationId = requestAnimationFrame(animate);
+        }
+
+        // Start beat detection when audio plays
+        audioElement.addEventListener('play', () => {
+          ctx.resume().then(animate);
+        });
+
+        // Reset background and stop animation when audio pauses or ends
+        audioElement.addEventListener('pause', () => {
+          document.body.style.backgroundColor = "";
+          if (animationId) cancelAnimationFrame(animationId);
+        });
+        audioElement.addEventListener('ended', () => {
+          document.body.style.backgroundColor = "";
+          if (animationId) cancelAnimationFrame(animationId);
+        });
       }
-    });
-  });
 
-</script>
+      // Setup beat detection every time audio source changes
+      const mainAudio = document.getElementById("mainAudio");
+      if (mainAudio) {
+        // When a new audio is loaded, re-setup beat detection
+        mainAudio.addEventListener('loadeddata', () => {
+          setupBeatDetection(mainAudio);
+        });
 
-
+        // Also setup on first page load if there's a valid src
+        if (mainAudio.src) {
+          setupBeatDetection(mainAudio);
+        }
+      }
+    </script>
 </body>
-
 </html>
