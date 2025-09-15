@@ -1,0 +1,36 @@
+body{
+    background: linear-gradient(to right, skyblue,rgba(88, 101, 212, 0.897), rgb(138, 80, 231) );
+    animation: gradientShift 15s ease infinite;
+    animation-duration: 0.5s;
+    display: flex;              
+    flex-direction: column;     
+    justify-content: center;    
+    align-items: center;        
+    min-height: 100vh;          
+    margin: 0;    
+}
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    color: white
+}
+@keyframes identifier {
+    0% {background-color: rgb(84, 156, 224);}
+    25% {background-color: rgb(34, 154, 235);}
+    50% {background-color: rgb(97, 180, 228);}
+    100% {background-color: rgb(175, 52, 233);}
+}
+
+  video {
+    max-width: 90%;            
+    height: auto;
+    margin-bottom: 20px;        
+  }
+
+  audio {
+    width: 300px;
+  }
+
+  div{
+    align-items: center;
+  }
