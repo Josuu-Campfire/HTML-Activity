@@ -1,0 +1,12 @@
+body {
+    margin: 0px;
+    background-size: 300% 300%;
+    animation: gradientAnimation 5s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {background-color: blue;}
+    50% {background-color: purple;}
+    100% {background-color: blue;}
+}
+    
