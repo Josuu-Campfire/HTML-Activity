@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import CSS for visual styling and layout -->
+    <link rel="stylesheet" href="visuals.css">
+    
+    <title>Hyvenn</title>
+    <!-- Page icon loaded from GitHub raw file -->
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/cube.png">
+
+    <!-- Embed Google Fonts for custom typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Hind+Guntur:wght@300;400;500;600;700&family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+
+    <section class="layout">
+      <!-- Header Section
+           - Displays logo and site title.
+           - Uses accent color and custom font.
+      -->
+      <div class="header">
+        <!-- Logo loaded from GitHub raw file for fast CDN delivery -->
+        <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/hurricane.png" alt="meh">
+        <h1>
+            Hyvenn
+        </h1>
+      </div>
+
+      <!-- Sidebar Section
+           - Contains a scrollable list of video thumbnails.
+           - Each thumbnail loads a specific video and song.
+      -->
+      <div class="sidebar">
+        <h2 class="caudex-regular">
+            Videos:
+        </h2>
+        <ul class="hind-guntur-light">
+          <!-- Each list item represents a video selection.
+               - Thumbnail images loaded from GitHub raw files.
+               - alt attribute used as key for video/audio mapping.
+          -->
+          <li>
+              <img src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Thumbnails/MykeThumb.png" alt="Myke">
+              <p class="hind-guntur-light">Encinas's Vlog</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content Section
+           - Contains the video and audio player stack.
+           - Video and audio are loaded dynamically based on sidebar selection.
+      -->
+      <div class="main">
+        <div class="video-audio-stack">
+          <!-- Video Display
+               - Shows selected video.
+               - Video source is set via JavaScript.
+          -->
+          <div class="video-container-custom">
+              <video src="https://www.dropbox.com/scl/fi/z9li58p9bak517m963i2y/Myke.mp4?rlkey=ejhc8udn4fpprljd5jrwez5v2&st=q5z2zy9z&raw=1" id="mainVideo" controls type="video/mp4">
+                Unable to load, possibly unsupported by the browser.
+              </video>
+          </div>
+          <!-- Audio Display
+               - Shows favorite song for selected video.
+               - Audio source is set via JavaScript.
+          -->
+          <div class="audio-container-custom">
+              <p class="share-regular">Favorite Song:</p>
+              <audio src="https://raw.githubusercontent.com/Josuu-Campfire/HTML-Activity/main/Assets/Fav Songs/Encinas/Just Right _ Tessa Violet.mp3" id="mainAudio" controls>
+                Unable to load, possibly unsupported by the browser.
+              </audio>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Section
+           - Displays page info, member names, and date.
+           - Uses flexbox for layout.
+      -->
+      <div class="footer">
+        <section class="layoutfooter caudex-regular tex">
+          <div class="grow1">Vlog Page Activity</div>
+          <div class="grow1">Individual Work Of: Myke Joshua L. Encinas</div>
+          <div class="grow1">07/09/2025</div>
+        </section>
+      </div>
+    </section>
+
+    <script>
+      // Accent Color Palette Randomizer
+      // Randomizes accent color palette for the site on each load.
+      // Shuffles accent color pairs and sets them as CSS variables.
+      // Affects overall color theme for backgrounds, buttons, and highlights.
+      const accentPairs = [
+        { normal: '--accent1', mid: '--accent1-mid', dark: '--accent1-dark' },
+        { normal: '--accent2', mid: '--accent2-mid', dark: '--accent2-dark' },
+        { normal: '--accent3', mid: '--accent3-mid', dark: '--accent3-dark' },
+        { normal: '--accent4', mid: '--accent4-mid', dark: '--accent4-dark' },
+        { normal: '--accent5', mid: '--accent5-mid', dark: '--accent5-dark' }
+      ];
+      // Shuffle indices to randomize accent selection for each session
+      const indices = [0, 1, 2, 3, 4].sort(() => Math.random() - 0.5);
+
+      // Assign shuffled accent colors to CSS variables for dynamic theming
+      for (let i = 0; i < 5; i++) {
+        const pair = accentPairs[indices[i]];
+        document.documentElement.style.setProperty(`--accent${i+1}`,
+          getComputedStyle(document.documentElement).getPropertyValue(pair.normal));
+        document.documentElement.style.setProperty(`--accent${i+1}-mid`,
+          getComputedStyle(document.documentElement).getPropertyValue(pair.mid));
+        document.documentElement.style.setProperty(`--accent${i+1}-dark`,
+          getComputedStyle(document.documentElement).getPropertyValue(pair.dark));
+      }
+
+      // Set main accent palette for the page from the selected random indices
+      // Used for header, footer, and main content backgrounds.
+      document.documentElement.style.setProperty('--accent',
+        getComputedStyle(document.documentElement).getPropertyValue(`--accent1`));
+      document.documentElement.style.setProperty('--accent-mid',
+        getComputedStyle(document.documentElement).getPropertyValue(`--accent1-mid`));
+      document.documentElement.style.setProperty('--accent-dark',
+        getComputedStyle(document.documentElement).getPropertyValue(`--accent1-dark`));
+    </script>
+</body>
+</html>
